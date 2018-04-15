@@ -40,27 +40,36 @@ final List<Entry> data = <Entry>[
                 + "> Gopen, G. D. and Swan, J. A., \"The Science of Scientific Writing,\" American Scientist, vol. 78, pp. 550-558, Nov.1990."+
                 "> Knuth, D.E. et al., \"Mathematical Writing\", MAA Notes, no. 14, The Mathematical Association of America, 1989", }),
         ],),
-      new Entry('Section A2'),
     ],
   ),
-  new Entry('Chapter B',
+  new Entry('Operating Systems 1',
     <Entry>[
-      new Entry('Section B0'),
-      new Entry('Section B1'),
-    ],
-  ),
-  new Entry('Chapter C',
-    <Entry>[
-      new Entry('Section C0'),
-      new Entry('Section C1'),
-      new Entry('Section C2',
+      new Entry('Info',[],<String,String>{"ECTS":"5","SWS":"4","lecturer":"Dr. phil. Aniko Balazs", }),
+      new Entry('Details',
         <Entry>[
-          new Entry('Item C2.0'),
-          new Entry('Item C2.1'),
-          new Entry('Item C2.2'),
-          new Entry('Item C2.3'),
-        ],
-      ),
+          new Entry('Info',[],<String,String>{"Course objective":"Enable participants to produce technical documents according to the"+
+              "English language writing standards. > Sensitise students for the need of document usability and readability."+
+              "> Provide students with the tools necessary to write and revise their documents effectively",
+            "Prerequisites":"Profound knowledge in English (intermediate -- post-intermediate)","Recommended reading":
+            "> Rechenberg, P., \"Technisches Schreiben (nicht nur) fuer Informatiker\", 2nd ed., Muenchen-Wien: Hanser, 2003."
+                + "> Gopen, G. D. and Swan, J. A., \"The Science of Scientific Writing,\" American Scientist, vol. 78, pp. 550-558, Nov.1990."+
+                "> Knuth, D.E. et al., \"Mathematical Writing\", MAA Notes, no. 14, The Mathematical Association of America, 1989", }),
+        ],),
+    ],
+  ),
+  new Entry('Event Driven Systems',
+    <Entry>[
+      new Entry('Info',[],<String,String>{"ECTS":"5","SWS":"4","lecturer":"Dr. phil. Aniko Balazs", }),
+      new Entry('Details',
+        <Entry>[
+          new Entry('Info',[],<String,String>{"Course objective":"Enable participants to produce technical documents according to the"+
+              "English language writing standards. > Sensitise students for the need of document usability and readability."+
+              "> Provide students with the tools necessary to write and revise their documents effectively",
+            "Prerequisites":"Profound knowledge in English (intermediate -- post-intermediate)","Recommended reading":
+            "> Rechenberg, P., \"Technisches Schreiben (nicht nur) fuer Informatiker\", 2nd ed., Muenchen-Wien: Hanser, 2003."
+                + "> Gopen, G. D. and Swan, J. A., \"The Science of Scientific Writing,\" American Scientist, vol. 78, pp. 550-558, Nov.1990."+
+                "> Knuth, D.E. et al., \"Mathematical Writing\", MAA Notes, no. 14, The Mathematical Association of America, 1989", }),
+        ],),
     ],
   ),
 ];
@@ -80,7 +89,7 @@ class EntryItem extends StatelessWidget {
       List<TableRow> rows = new List();
       keys.forEach((x) => rows.add(new TableRow(children: [new Text(x),new Text(root.info[x])])));
       return new Table(
-        children: rows,
+        children: rows,border:  new TableBorder.all() ,
       );
     }
     return new ExpansionTile(
