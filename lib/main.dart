@@ -95,6 +95,125 @@ class EntryItem extends StatelessWidget {
   }
 }
 
+class FacultyEntry {
+  final int id;
+  final String name;
+  final String shorthand;
+  final Color background;
+
+  FacultyEntry(this.id, this.name, this.shorthand, this.background);
+}
+
+class FacultyWidget extends StatelessWidget {
+  final FacultyEntry facultyEntry;
+
+  const FacultyWidget(this.facultyEntry);
+
+  Widget _buildWidget() {
+    return new SizedBox(
+      height: 250.0,
+      child: new Row(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[new Expanded(
+        child: new Container(
+          child: new Card(
+            color: facultyEntry.background.withOpacity(0.5),
+            elevation: 3.0,
+            child: new FlatButton(
+              onPressed: () => print(facultyEntry.shorthand),
+              child: new Column (
+                children:<Widget>[
+                new Container(
+                  padding: new EdgeInsets.all(15.0),
+                  child: new Text(
+                  facultyEntry.shorthand,
+                  textAlign: TextAlign.center,
+                  style: new TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 45.0,
+                    color: Colors.black54,
+                    fontStyle: FontStyle.normal
+                    )
+                  )
+                ),
+                new Container(
+                  child: new Text(
+                  facultyEntry.name,
+                  textAlign: TextAlign.center,
+                  style: new TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 30.0,
+                    color: Colors.black54,
+                    fontStyle: FontStyle.normal
+                    )
+                  )
+                  )
+              ]
+              )
+            )
+            )
+          )
+        )]
+        )
+        );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildWidget();
+  }
+
+}
+
+class FacultiesView extends StatelessWidget{
+
+  final List<FacultyEntry> _facultiesList;
+
+  const FacultiesView(this._facultiesList);
+
+  Widget _buildWidget(){
+    return new Container(
+        child: new ListView(
+        padding: const EdgeInsets.all(20.0),
+        children: _facultiesList
+        .map((e) => new FacultyWidget(e)).toList()
+      )
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _buildWidget();
+  }
+}
+
+class FacultyListView extends StatelessWidget {
+
+  static final facultyEntry0 = new FacultyEntry(1, "Computer Science and Mathematics", "FK07", Colors.blue[200]);
+  static final facultyEntry1 = new FacultyEntry(1, "Electrical Engineering and Information Technology", "FK04", Colors.green[200]);
+  static final facultyEntry2 = new FacultyEntry(1, "Mechanical, Automotive and Aeronautical Engineering", "FK03", Colors.red[200]);
+  List<FacultyEntry> faculties = [facultyEntry0, facultyEntry1, facultyEntry2];
+
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: const Text('FK07'),
+        ),
+        body: new Column(
+          children: <Widget>[
+            new Expanded(
+              child : new FacultiesView(faculties)
+              )
+          ]
+          )
+
+      ),
+    );
+  }
+}
+
 void main() {
-  runApp(new ExpansionTileSample());
+    runApp(new FacultyListView());
 }
