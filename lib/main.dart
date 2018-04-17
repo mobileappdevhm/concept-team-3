@@ -173,8 +173,9 @@ class FacultiesView extends StatelessWidget{
 
   Widget _buildWidget(){
     return new Container(
+        color: Colors.blueGrey[100],
         child: new ListView(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(10.0),
         children: _facultiesList
         .map((e) => new FacultyWidget(e)).toList()
       )
@@ -200,7 +201,8 @@ class FacultyListView extends StatelessWidget {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          title: const Text('FK07'),
+          backgroundColor: Colors.blueGrey[700].withOpacity(0.8),
+          title: const Text('CiE Prototype'),
         ),
         body: new Column(
           children: <Widget>[
