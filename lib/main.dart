@@ -189,10 +189,11 @@ class FacultiesView extends StatelessWidget{
 
 class FacultyListView extends StatelessWidget {
 
-  static final facultyEntry0 = new FacultyEntry(1, "Computer Science and Mathematics", "FK07", Colors.blue[200]);
-  static final facultyEntry1 = new FacultyEntry(1, "Electrical Engineering and Information Technology", "FK04", Colors.green[200]);
-  static final facultyEntry2 = new FacultyEntry(1, "Mechanical, Automotive and Aeronautical Engineering", "FK03", Colors.red[200]);
-  List<FacultyEntry> faculties = [facultyEntry0, facultyEntry1, facultyEntry2];
+  static final facultyEntry0 = new FacultyEntry(1, "Computer Science and Mathematics", "FK07", Colors.blue[400]);
+  static final facultyEntry1 = new FacultyEntry(1, "Electrical Engineering and Information Technology", "FK04", Colors.green[400]);
+  static final facultyEntry2 = new FacultyEntry(1, "Mechanical, Automotive and Aeronautical Engineering", "FK03", Colors.red[400]);
+  static final facultyEntry3 = new FacultyEntry(1, "Applied Sciences and Mechatronics", "FK06", Colors.deepOrange[400]);
+  List<FacultyEntry> faculties = [facultyEntry0, facultyEntry1, facultyEntry2, facultyEntry3];
 
   @override
   Widget build(BuildContext context) {
@@ -205,10 +206,9 @@ class FacultyListView extends StatelessWidget {
           children: <Widget>[
             new Expanded(
               child : new FacultiesView(faculties)
-              )
+            )
           ]
           )
-
       ),
     );
   }
