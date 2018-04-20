@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 class ExpansionTileSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      home: new Scaffold(
+    return new Scaffold(
         appBar: new AppBar(
           title: const Text('FK07'),
         ),
@@ -12,8 +11,7 @@ class ExpansionTileSample extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) => new EntryItem(data[index]),
           itemCount: data.length,
         ),
-      ),
-    );
+      );
   }
 }
 
@@ -109,7 +107,7 @@ class FacultyWidget extends StatelessWidget {
 
   const FacultyWidget(this.facultyEntry);
 
-  Widget _buildWidget() {
+  Widget _buildWidget(BuildContext context) {
     return new SizedBox(
       height: 250.0,
       child: new Row(
@@ -120,7 +118,11 @@ class FacultyWidget extends StatelessWidget {
             color: facultyEntry.background.withOpacity(0.5),
             elevation: 3.0,
             child: new FlatButton(
-              onPressed: () => print(facultyEntry.shorthand),
+              onPressed:() { Navigator.push(
+                context,
+                new MaterialPageRoute(builder: (context) => new ExpansionTileSample())
+                );
+              },
               child: new Column (
                 children:<Widget>[
                 new Container(
@@ -160,7 +162,7 @@ class FacultyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildWidget();
+    return _buildWidget(context);
   }
 
 }
@@ -217,5 +219,9 @@ class FacultyListView extends StatelessWidget {
 }
 
 void main() {
-    runApp(new FacultyListView());
+    runApp(new MaterialApp (
+          title: "Team3 Prototype",
+          home: new FacultyListView()
+          )
+        );
 }
