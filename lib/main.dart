@@ -13,12 +13,14 @@ class ExpansionTileSample extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ]),
-        body: new ListView.builder(
+        body:new Padding(
+    padding: new EdgeInsets.all(5.0),
+    child: new ListView.builder(
           itemBuilder: (BuildContext context, int index) =>
           new EntryItem(data[index]),
           itemCount: data.length,
         ),
-      ),
+        ),),
     );
   }
 }
@@ -129,11 +131,16 @@ class EntryItem extends StatelessWidget {
       List<TableRow> rows = new List();
       for (String s in keys) {
         rows.add(new TableRow(children: [
-          new Text(s,
+        new Padding(
+        padding: new EdgeInsets.all(8.0),
+            child:new Text(s,
               style: new TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold))
+        )
         ]));
         rows.add(new TableRow(children: [
-          new Text(root.info[s], style: new TextStyle(fontSize: 14.0))
+        new Padding(
+        padding: new EdgeInsets.all(4.0),
+            child: new Text(root.info[s], style: new TextStyle(fontSize: 14.0)))
         ]));
       }
 //      keys.forEach((x) => rows.add(new TableRow(children: [new Text(x),new Text(root.info[sx])])));
