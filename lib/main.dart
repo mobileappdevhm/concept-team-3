@@ -42,7 +42,7 @@ class Entry{
 // The entire multilevel list displayed by this app.
 final List<Entry> data = <Entry>[
   new Entry(
-    'Tecnical Writing', true,
+    'Technical Writing', true,
     <Entry>[
       new Entry('Info',false, [], <String, String>{
         "ECTS": "5",
